@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="StopLight.Pages.ConnectionPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:models="clr-namespace:StopLight.Models"
+    xmlns:pages="clr-namespace:StopLight.Pages"
+    x:DataType="pages:ConnectionPage">
+    <StackLayout BackgroundColor="SteelBlue" VerticalOptions="End">
+        <ListView
+            x:Name="DeviceListView"
+            CachingStrategy="RecycleElement"
+            ItemTapped="HandleSelectedDevice"
+            ItemsSource="{Binding Devices}">
+            <!--  Built in Cells  -->
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="models:DeviceListItemViewModel">
+                    <TextCell Text="{Binding Name}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <StackLayout HorizontalOptions="Fill" Orientation="Horizontal">
+            <Button
+                Padding="30,0,30,0"
+                BackgroundColor="SteelBlue"
+                FontSize="16"
+                HorizontalOptions="Start"
+                Pressed="DidPressScan"
+                Text="Scan"
+                TextColor="White" />
+            <!--<Button
+                Padding="30,0,30,0"
+                BackgroundColor="SteelBlue"
+                FontSize="16"
+                HorizontalOptions="EndAndExpand"
+                Pressed="DidPressDisconnect"
+                Text="Disconnect"
+                TextColor="White" />-->
+        </StackLayout>
+    </StackLayout>
+
+</ContentPage>

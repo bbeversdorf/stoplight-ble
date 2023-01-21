@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="StopLight.Pages.MainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:Elements="clr-namespace:StopLight.Elements"
+    xmlns:pages="clr-namespace:StopLight.Pages"
+    Title="Beaver's Stoplight"
+    x:DataType="pages:MainPage"
+    BackgroundColor="SteelBlue">
+    <StackLayout BackgroundColor="LightSteelBlue" VerticalOptions="End">
+        <ScrollView>
+            <StackLayout>
+                <Label x:Name="BLEDeviceName" />
+                <Grid
+                    Margin="20,35,20,0"
+                    ColumnSpacing="5"
+                    RowSpacing="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="180" />
+                        <RowDefinition Height="180" />
+                        <RowDefinition Height="180" />
+                        <RowDefinition Height="10" />
+                        <RowDefinition Height="60" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Frame
+                        BackgroundColor="DarkRed"
+                        CornerRadius="20"
+                        HasShadow="True">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="RedTapped" />
+                        </Frame.GestureRecognizers>
+                        <Elements:OutlineLabel
+                            FontSize="20"
+                            HorizontalTextAlignment="Center"
+                            StrokeColor="Black"
+                            StrokeThickness="10"
+                            Text="Red"
+                            TextColor="White"
+                            VerticalTextAlignment="Center" />
+                    </Frame>
+                    <Frame
+                        Grid.Column="1"
+                        BackgroundColor="OrangeRed"
+                        CornerRadius="20">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="DontWalkTapped" />
+                        </Frame.GestureRecognizers>
+                        <Image Aspect="AspectFill" Source="dontwalk.png" />
+
+                    </Frame>
+                    <Frame
+                        Grid.Row="1"
+                        BackgroundColor="#ffe357"
+                        CornerRadius="20">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="YellowTapped" />
+                        </Frame.GestureRecognizers>
+                        <Elements:OutlineLabel
+                            FontSize="18"
+                            HorizontalTextAlignment="Center"
+                            StrokeColor="Black"
+                            StrokeThickness="10"
+                            Text="Yellow"
+                            TextColor="White"
+                            VerticalTextAlignment="Center" />
+                    </Frame>
+                    <Frame
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        BackgroundColor="#03F488"
+                        CornerRadius="20">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="WalkTapped" />
+                        </Frame.GestureRecognizers>
+                        <Image Aspect="AspectFill" Source="walk.png" />
+                    </Frame>
+                    <Frame
+                        Grid.Row="2"
+                        BackgroundColor="#226b11"
+                        CornerRadius="20">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="GreenTapped" />
+                        </Frame.GestureRecognizers>
+                        <Elements:OutlineLabel
+                            FontSize="20"
+                            HorizontalTextAlignment="Center"
+                            StrokeColor="Black"
+                            StrokeThickness="10"
+                            Text="Green"
+                            TextColor="White"
+                            VerticalTextAlignment="Center" />
+                    </Frame>
+                    <Frame
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        CornerRadius="20">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="CycleTapped" />
+                        </Frame.GestureRecognizers>
+                        <Elements:OutlineLabel
+                            FontSize="20"
+                            HorizontalTextAlignment="Center"
+                            StrokeColor="Black"
+                            StrokeThickness="10"
+                            Text="Cycle"
+                            TextColor="White"
+                            VerticalTextAlignment="Center" />
+                    </Frame>
+
+                    <Button
+                        Grid.Row="4"
+                        Grid.ColumnSpan="2"
+                        BackgroundColor="SteelBlue"
+                        CornerRadius="20"
+                        Pressed="SavePresetPressed"
+                        Text="Save as Preset"
+                        TextColor="White" />
+                </Grid>
+            </StackLayout>
+
+        </ScrollView>
+        <StackLayout
+            Padding="20,5,20,5"
+            BackgroundColor="SteelBlue"
+            HorizontalOptions="Fill"
+            Orientation="Horizontal">
+
+            <Button
+                x:Name="DisconnectButton"
+                BackgroundColor="SteelBlue"
+                HorizontalOptions="Start"
+                Pressed="DisconnectPressed"
+                Text="Disconnect"
+                TextColor="White" />
+            <Button
+                x:Name="ConnectButton"
+                BackgroundColor="SteelBlue"
+                HorizontalOptions="Start"
+                Pressed="ConnectPressed"
+                Text="Connect"
+                TextColor="White" />
+            <Button
+                BackgroundColor="SteelBlue"
+                HorizontalOptions="EndAndExpand"
+                Pressed="PresetPressed"
+                Text="Presets"
+                TextColor="White" />
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

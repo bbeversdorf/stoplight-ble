@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    x:Class="StopLight.Pages.CyclePage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Cycle">
+    <ContentPage.Content>
+        <StackLayout
+            Margin="20"
+            HorizontalOptions="Center"
+            Orientation="Vertical">
+            <Label Text="Select a cycle" />
+            <StackLayout HorizontalOptions="EndAndExpand" Orientation="Horizontal">
+                <Picker
+                    x:Name="CyclePicker"
+                    BackgroundColor="AliceBlue"
+                    ItemsSource="{Binding CycleItems}"
+                    WidthRequest="300" />
+            </StackLayout>
+            <Label Text="Choose a blink speed" />
+            <Editor
+                x:Name="BlinkSpeed"
+                IsSpellCheckEnabled="False"
+                Keyboard="Numeric"
+                WidthRequest="300" />
+            <Button
+                BackgroundColor="SteelBlue"
+                Pressed="ButtonPressed"
+                Text="Save"
+                TextColor="White" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
